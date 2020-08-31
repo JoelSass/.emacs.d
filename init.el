@@ -73,8 +73,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-ui)
 
-(require 'init-org)
-
 (require 'init-acewindow)
 
 (require 'init-search)
@@ -86,3 +84,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-lsp)
 
 (require 'init-undo)
+
+(require 'init-anki)
+
+(require 'init-org)
+
