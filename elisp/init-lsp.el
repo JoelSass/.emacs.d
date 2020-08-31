@@ -49,4 +49,6 @@
          ("C-M-<f11>" . dap-step-out)
          ("<f7>" . dap-breakpoint-toggle))))
 
+(use-package lsp-java)
+
 (provide 'init-lsp)
