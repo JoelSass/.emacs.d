@@ -65,6 +65,10 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (update-to-load-path (expand-file-name "elisp" user-emacs-directory))
 
+(setq initial-major-mode 'org-mode)
+
+(setq initial-scratch-message "* Scratch")
+
 (setq use-package-always-ensure t)
 
 (setq make-backup-files nil)
@@ -89,3 +93,28 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-org)
 
+(require 'init-snippets)
+
+(require 'init-java)
+
+(require 'init-mu4e)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(smtpmail-smtp-server "smtp.gmail.com")
+ '(smtpmail-smtp-service 25))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0))))
+ '(cursor ((t (:background "dark goldenrod"))))
+ '(lsp-ui-doc-background ((t (:background nil))))
+ '(lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic)))))
+ '(org-level-1 ((t (:height 2.0 :foreground "#a71d31"))))
+ '(org-level-2 ((t (:height 1.5 :foreground "#8D6B94"))))
+ '(org-level-3 ((t (:height 1.25))))
+ '(org-level-4 ((t (:height 1.15)))))

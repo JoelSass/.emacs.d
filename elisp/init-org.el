@@ -54,7 +54,21 @@
   (when (org-roam--org-roam-file-p)
     (anki-editor-push-notes)))
 
+(use-package company-org-roam
+  :ensure t
+  ;; You may want to pin in case the version from stable.melpa.org is not working 
+  ; :pin melpa
+  :config
+  (push 'company-org-roam company-backends))
+
 (add-hook 'after-save-hook 'push-anki-h)
 
+(use-package org-download)
+(add-hook 'dired-mode-hook 'org-download-enable)
+
+
+(setq org-startup-with-inline-images t)
+
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.6))
 
 (provide 'init-org)
