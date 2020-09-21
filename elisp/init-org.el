@@ -1,3 +1,5 @@
+(setq org-agenda-files '("~/MEGA/org/agenda"))
+
 (use-package org-bullets
 :ensure t
 :init
@@ -38,14 +40,6 @@
 
 - tags ::
 
-\* ${title}
-:PROPERTIES:
-:ANKI_DECK: Master
-:ANKI_NOTE_TYPE: Basic
-:END:
-\** Front
-    ${title}
-\** Back
 "
 :unnarrowed t
 :immediate-finish t)))

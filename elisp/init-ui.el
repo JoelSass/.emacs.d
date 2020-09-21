@@ -13,7 +13,7 @@
 :config
 (doom-themes-visual-bell-config)
 (doom-themes-org-config)
-(load-theme 'doom-solarized-light t))
+(load-theme 'doom-nord t))
 
 
 (use-package doom-modeline

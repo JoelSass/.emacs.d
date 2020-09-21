@@ -98,6 +98,9 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-java)
 
 (require 'init-mu4e)
+
+(require 'init-dashboard)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

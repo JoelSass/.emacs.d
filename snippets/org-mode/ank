@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: Anki Flashcard
+# key: <ank
+# --
+
+* $1
+:PROPERTIES:
+:ANKI_DECK: Master
+:ANKI_NOTE_TYPE: Basic
+:END:
+** Front
+    $1
+** Back

@@ -38,9 +38,15 @@
 (setq org-capture-templates
       '(("a" "Anki basic" entry (file+headline org-my-anki-file "Dispatch Shelf")
          "* %<%H:%M>   %^g\n:PROPERTIES:\n:ANKI_NOTE_TYPE: Basic\n:ANKI_DECK: Mega\n:END:\n** Front\n%?\n** Back\n%x\n")
+      ("t" "Agenda Todo" entry
+     (file+headline "~/MEGA/org/agenda/todo.org" "Agenda")
+     "\n\n** TODO %?\nSCHEDULED: <%<%Y-%m-%d %a>>" 
+     :empty-lines 1)
         ("A" "Anki cloze" entry (file+datetree org-my-anki-file "Dispatch Shelf")
          "* %<%H:%M>   %^g\n:PROPERTIES:\n:ANKI_NOTE_TYPE: Cloze\n:ANKI_DECK: Mega\n:END:\n** Text\n%x\n** Extra\n")))
 
+(define-key global-map (kbd "C-c t")
+  (lambda () (interactive) (org-capture nil "t")))
 
 ;; Allow Emacs to access content from clipboard.
 (setq x-select-enable-clipboard t
