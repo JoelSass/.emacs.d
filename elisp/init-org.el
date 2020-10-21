@@ -1,12 +1,11 @@
 (setq org-agenda-files '("~/MEGA/org/agenda"))
 
-(use-package org-bullets
-:ensure t
+(use-package org-superstar
 :init
-(setq org-bullets-bullet-list
+(setq org-superstar-headline-bullets-list
 '("" "" "" ""))
 :config
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 
 (custom-set-faces
 '(org-level-1 ((t (:height 2.0 :foreground "#a71d31"))))
@@ -16,6 +15,7 @@
 )
 
 (use-package org-roam
+  :load-path "~/.emacs.d/site-lisp/org-roam/"
 :hook
 (after-init . org-roam-mode)
 :custom

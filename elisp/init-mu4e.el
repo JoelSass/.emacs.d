@@ -1,6 +1,7 @@
 (use-package mu4e
   :load-path "/usr/share/emacs/site-lisp/mu4e"
   :commands mu4e mu4e-compose-new
+  :bind (("C-c m" . mu4e))
   :init
   (provide 'html2text)
   (setq mu4e-maildir "~/.mail"

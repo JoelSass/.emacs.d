@@ -7,6 +7,8 @@
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 
+(add-hook 'text-mode-hook #'visual-line-mode)
+
 (use-package doom-themes
 :custom-face
 (cursor ((t (:background "dark goldenrod"))))

@@ -101,6 +101,12 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-dashboard)
 
+(require 'init-haskell)
+
+(require 'init-smartparens)
+
+(require 'init-fold)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
