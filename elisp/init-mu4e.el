@@ -15,7 +15,7 @@
   (setq mu4e-update-interval nil
         mu4e-compose-format-flowed t ; visual-line-mode + auto-fill upon sending
         mu4e-view-show-addresses t
-	user-mail-address "joelpaulsass@gmail.com"
+	user-mail-address "joelsass@pm.me"
 	user-full-name  "Joel Sass"
         mu4e-sent-messages-behavior 'sent
         mu4e-hide-index-messages t
@@ -41,6 +41,11 @@
           (:flags . 4)
           (:from . 25)
           (:subject)))
+
+(setq message-send-mail-function 'smtpmail-send-it
+    smtpmail-auth-credentials "~/.authinfo.gpg"
+    smtpmail-smtp-server "127.0.0.1"
+    smtpmail-smtp-service 1025)
 
   ;; set mail user agent
   (setq mail-user-agent 'mu4e-user-agent)

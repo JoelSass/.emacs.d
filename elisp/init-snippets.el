@@ -3,5 +3,4 @@
 
 (use-package yasnippet-snippets)
 
-
 (provide 'init-snippets)

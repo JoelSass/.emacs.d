@@ -65,10 +65,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (update-to-load-path (expand-file-name "elisp" user-emacs-directory))
 
-(setq initial-major-mode 'org-mode)
-
-(setq initial-scratch-message "* Scratch")
-
 (setq use-package-always-ensure t)
 
 (setq make-backup-files nil)
@@ -89,8 +85,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-undo)
 
-(require 'init-anki)
-
 (require 'init-org)
 
 (require 'init-snippets)
@@ -105,15 +99,10 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-smartparens)
 
+(require 'init-anki)
+
 (require 'init-fold)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(smtpmail-smtp-server "smtp.gmail.com")
- '(smtpmail-smtp-service 25))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -43,11 +43,6 @@
 "
 :unnarrowed t
 :immediate-finish t)))
-
-(defun push-anki-h()
-  (when (org-roam--org-roam-file-p)
-    (anki-editor-push-notes)))
-
 (use-package company-org-roam
   :ensure t
   ;; You may want to pin in case the version from stable.melpa.org is not working 
@@ -57,9 +52,12 @@
 
 (add-hook 'after-save-hook 'push-anki-h)
 
+(defun push-anki-h()
+  (when (org-roam--org-roam-file-p)
+    (anki-editor-push-notes)))
+
 (use-package org-download)
 (add-hook 'dired-mode-hook 'org-download-enable)
-
 
 (setq org-startup-with-inline-images t)
 
@@ -231,6 +229,20 @@
                                :icon ("list" :set "faicon" :color "yellow")
                                :template ("* TODO [#D] %{unit-prompt} %? :uni:"
                                           "%i %a"))))
+		  ("Drill" :keys "d"
+		   :icon ("brain" :set "fileicon" :color "pink")
+		   :file "~/MEGA/org/agenda/drill.org"
+		   :prepend t
+		   :type entry
+		   :children (("Simple" :keys "s"
+			       :icon ("create" :set "material" :color "green")
+			       :template ("* Item \t :drill: \n %^{Question} ? \n** The Answer \n %^{Answer} ."))
+			      ("Cloze" :keys "c"
+			       :icon ("more_horiz" :set "material" :color "green")
+			       :template ("* Item \t :drill: \n %^{sentence} [ %^{placeholder} ]"))
+			      ("Double-sided" :keys "d"
+			       :icons ("call_split" :set "material" :color "green")
+			       :template ("* Item \t :drill: \n \t :PROPERTIES: \n \t :DRILL_CARD_TYPE: twosided \n \t :END: \n \n %^{Question} \n \n ** %^{First side} \n %^{First side answer} \n \n ** %^{second side} \n %^{second side answer}"))))
 		  ("Email" :keys "e"
                    :icon ("envelope" :set "faicon" :color "blue")
 		   :file "~/MEGA/org/agenda/todo.org"
@@ -309,6 +321,7 @@
           `(("uni"        . ,(all-the-icons-faicon   "graduation-cap" :face 'all-the-icons-purple  :v-adjust 0.01))
             ("ucc"        . ,(all-the-icons-material "computer"       :face 'all-the-icons-silver  :v-adjust 0.01))
             ("assignment" . ,(all-the-icons-material "library_books"  :face 'all-the-icons-orange  :v-adjust 0.01))
+            ("drill"      . ,(all-the-icons-fileicon "brain"          :face 'all-the-icons-orange  :v-adjust 0.01))
             ("test"       . ,(all-the-icons-material "timer"          :face 'all-the-icons-red     :v-adjust 0.01))
             ("lecture"    . ,(all-the-icons-fileicon "keynote"        :face 'all-the-icons-orange  :v-adjust 0.01))
             ("email"      . ,(all-the-icons-faicon   "envelope"       :face 'all-the-icons-blue    :v-adjust 0.01))
@@ -322,5 +335,6 @@
             ("emacs"      . ,(all-the-icons-fileicon "emacs"          :face 'all-the-icons-lpurple :v-adjust 0.01))))
     (org-pretty-tags-global-mode))
 
+(use-package org-drill)
 
 (provide 'init-org)
