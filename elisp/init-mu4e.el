@@ -1,4 +1,5 @@
 (use-package mu4e
+  :diminish
   :load-path "/usr/share/emacs/site-lisp/mu4e"
   :commands mu4e mu4e-compose-new
   :bind (("C-c m" . mu4e))
@@ -81,6 +82,7 @@
 Usefull for affecting some of my HTML export config.")
 
 (use-package org-msg
+  :diminish
   :after mu4e
   :config
   (setq org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil \\n:t tex:dvipng"

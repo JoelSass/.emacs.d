@@ -1,4 +1,5 @@
 (use-package lsp-mode
+  :diminish
   :commands lsp
   :custom
   (lsp-auto-guess-root nil)
@@ -12,6 +13,7 @@
           c-mode c++-mode objc-mode) . lsp))
 
 (use-package lsp-ui
+  :diminish
   :after lsp-mode
   :commands lsp-ui-mode
   :custom-face
@@ -49,6 +51,6 @@
          ("C-M-<f11>" . dap-step-out)
          ("<f7>" . dap-breakpoint-toggle))))
 
-(use-package lsp-java)
+(use-package lsp-java :diminish)
 
 (provide 'init-lsp)

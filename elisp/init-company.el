@@ -1,4 +1,5 @@
 (use-package company
+  :diminish
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
   :commands company-cancel
   :bind (("M-/" . company-complete)
@@ -28,6 +29,7 @@
                             company-echo-metadata-frontend)))
 
 (use-package company-box
+  :diminish
   :hook (company-mode . company-box-mode)
   :config
   (setq company-box-show-single-candidate t

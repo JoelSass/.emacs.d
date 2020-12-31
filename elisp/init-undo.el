@@ -1,4 +1,5 @@
 (use-package undo-tree
+  :diminish
   ;; Branching & persistent undo
   :config
   (setq undo-tree-visualizer-diff t

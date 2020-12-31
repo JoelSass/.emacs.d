@@ -93,8 +93,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-mu4e)
 
-(require 'init-dashboard)
-
 (require 'init-haskell)
 
 (require 'init-smartparens)

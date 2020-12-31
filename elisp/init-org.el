@@ -1,6 +1,7 @@
 (setq org-agenda-files '("~/MEGA/org/agenda"))
 
 (use-package org-superstar
+  :diminish
 :init
 (setq org-superstar-headline-bullets-list
 '("" "" "" ""))
@@ -15,7 +16,7 @@
 )
 
 (use-package org-roam
-  :load-path "~/.emacs.d/site-lisp/org-roam/"
+  :diminish
 :hook
 (after-init . org-roam-mode)
 :custom
@@ -43,12 +44,6 @@
 "
 :unnarrowed t
 :immediate-finish t)))
-(use-package company-org-roam
-  :ensure t
-  ;; You may want to pin in case the version from stable.melpa.org is not working 
-  ; :pin melpa
-  :config
-  (push 'company-org-roam company-backends))
 
 (add-hook 'after-save-hook 'push-anki-h)
 
@@ -56,14 +51,12 @@
   (when (org-roam--org-roam-file-p)
     (anki-editor-push-notes)))
 
-(use-package org-download)
-(add-hook 'dired-mode-hook 'org-download-enable)
-
 (setq org-startup-with-inline-images t)
 
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.6))
 
 (use-package org-roam-server
+  :diminish
   :after org-roam
   :config
   (setq org-roam-server-host "127.0.0.1"
@@ -83,6 +76,7 @@
           ("fontname"   . "Overpass")))
 
 (use-package org-super-agenda
+  :diminish
   :commands (org-super-agenda-mode))
 
 (setq org-agenda-skip-scheduled-if-done t
@@ -153,7 +147,7 @@
                           (:discard (:tag ("Chore" "Routine" "Daily")))))))))))
 
 
-(use-package doct)
+(use-package doct :diminish)
 
 (defun +doct-icon-declaration-to-icon (declaration)
     "Convert :icon declaration to icon"
@@ -316,6 +310,7 @@
 
 
 (use-package org-pretty-tags
+  :diminish 
    :config
     (setq org-pretty-tags-surrogate-strings
           `(("uni"        . ,(all-the-icons-faicon   "graduation-cap" :face 'all-the-icons-purple  :v-adjust 0.01))
@@ -335,6 +330,13 @@
             ("emacs"      . ,(all-the-icons-fileicon "emacs"          :face 'all-the-icons-lpurple :v-adjust 0.01))))
     (org-pretty-tags-global-mode))
 
-(use-package org-drill)
+(defun efs/org-mode-visual-fill ()
+  (setq visual-fill-column-width 100
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :diminish 
+  :hook (org-mode . efs/org-mode-visual-fill))
 
 (provide 'init-org)

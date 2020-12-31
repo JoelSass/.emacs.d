@@ -1,3 +1,4 @@
-(use-package lsp-java)
+(use-package lsp-java :diminish
+  )
 
 (provide 'init-java)

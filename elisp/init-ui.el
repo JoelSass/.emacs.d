@@ -1,3 +1,5 @@
+(defvar efs/default-font-size 120)
+(defvar efs/default-variable-font-size 120)
 (show-paren-mode t)
 (setq show-paren-style 'expression)
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -6,19 +8,36 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
+(tooltip-mode -1)
+(set-fringe-mode 10)
 
-(add-hook 'text-mode-hook #'visual-line-mode)
+(column-number-mode)
+(global-display-line-numbers-mode t)
+
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                shell-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+(set-face-attribute 'default nil :font "Fira Code Retina" :height efs/default-font-size)
+
+(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height efs/default-font-size)
+
+(set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-font-size :weight 'regular)
 
 (use-package doom-themes
+:diminish
 :custom-face
 (cursor ((t (:background "dark goldenrod"))))
 :config
 (doom-themes-visual-bell-config)
 (doom-themes-org-config)
-(load-theme 'doom-nord t))
+(load-theme 'doom-dracula t))
 
 
 (use-package doom-modeline
+  :diminish
 :custom
 (inhibit-compacting-font-caches t)
 (doom-modeline-minor-modes t)
@@ -30,9 +49,9 @@
 
 
 ;; pretty eshell
-(use-package magit :ensure t)
-(use-package dash)
-(use-package s)
+(use-package magit :ensure t :diminish)
+(use-package dash :diminish)
+(use-package s :diminish)
 
 (defmacro with-face (STR &rest PROPS)
   "Return STR propertized with PROPS."
@@ -76,7 +95,7 @@
 (setq eshell-prompt-string " ")   ; or "└─> "
 
 (esh-section esh-dir
-             "\xf07c"  ;  (faicon folder)
+             ""  ;  (faicon folder)
              (abbreviate-file-name (eshell/pwd))
              '(:foreground "gold" :bold ultra-bold :underline t))
 
@@ -90,7 +109,7 @@
              pyvenv-virtual-env-name)
 
 (esh-section esh-clock
-             "\xf017"  ;  (clock icon)
+             ""  ;  (clock icon)
              (format-time-string "%H:%M" (current-time))
              '(:foreground "forest green"))
 
@@ -101,7 +120,7 @@
             (lambda (&rest args) (setq esh-prompt-num (cl-incf esh-prompt-num))))
 
 (esh-section esh-num
-             "\xf0c9"  ;  (list icon)
+             ""  ;  (list icon)
              (number-to-string esh-prompt-num)
              '(:foreground "brown"))
 
@@ -173,7 +192,8 @@
 (add-hook 'git-commit-setup-hook 'magit-commit-prompt)
 (advice-add 'magit-commit :after 'use-magit-commit-prompt)
 
-(use-package pretty-mode)
+(use-package pretty-mode
+  :diminish)
 (global-pretty-mode t)
 
 (pretty-deactivate-groups

@@ -1,4 +1,5 @@
 (use-package ace-window
+  :diminish
 :init
 (progn
 (global-set-key [remap other-window] 'ace-window)
