@@ -73,8 +73,6 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (require 'init-ui)
 
-(require 'init-acewindow)
-
 (require 'init-search)
 
 (require 'init-avy)
@@ -100,6 +98,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-anki)
 
 (require 'init-fold)
+
+(require 'init-misc)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

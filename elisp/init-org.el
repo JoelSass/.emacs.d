@@ -4,7 +4,7 @@
   :diminish
 :init
 (setq org-superstar-headline-bullets-list
-'("" "" "" ""))
+'("◉" "○" "●" "○" "●" "○" "●"))
 :config
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 
@@ -52,7 +52,7 @@
     (anki-editor-push-notes)))
 
 (setq org-startup-with-inline-images t)
-
+(setq org-hide-emphasis-markers t)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.6))
 
 (use-package org-roam-server
