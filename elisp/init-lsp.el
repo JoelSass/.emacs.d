@@ -36,6 +36,7 @@
   (lsp-ui-sideline-ignore-duplicate t)
   (lsp-ui-sideline-show-code-actions nil)
   :config
+  (setq lsp-ui-doc-enable t)
   (setq lsp-ui-doc-use-webkit t)
   (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
     (setq mode-line-format nil)))

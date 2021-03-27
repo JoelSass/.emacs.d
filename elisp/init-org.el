@@ -339,4 +339,6 @@
   :diminish 
   :hook (org-mode . efs/org-mode-visual-fill))
 
+(use-package org-download)
+
 (provide 'init-org)
