@@ -1,10 +1,26 @@
-(setq org-agenda-files '("~/MEGA/org/agenda"))
+(setq org-agenda-files (directory-files-recursively "~/MEGA/org-roam/" "\\.org$"))
+
+(setq org-todo-keywords
+  '((sequence
+     "TODO(t!)"
+     "GO(g@)"
+     "WAIT(w@)"
+     "BLOCKED(b@)"
+     "REVIEW(r!)"
+     "|"
+     "DONE(d@)"
+     "CANCELED(c@)"
+     )))
+
+(setq org-roam-dailies-directory "~/MEGA/org-roam/daily/")
+
+(setq org-image-actual-width '(400))
 
 (use-package org-superstar
   :diminish
 :init
 (setq org-superstar-headline-bullets-list
-'("◉" "○" "●" "○" "●" "○" "●"))
+'("" "" "" "" "" ""))
 :config
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 
@@ -13,6 +29,7 @@
 '(org-level-2 ((t (:height 1.5 :foreground "#8D6B94"))))
 '(org-level-3 ((t (:height 1.25 ))))
 '(org-level-4 ((t (:height 1.15 ))))
+'(org-level-5 ((t (:height 1.05 ))))
 )
 
 (use-package org-roam
@@ -29,6 +46,14 @@
 (("C-c n i" . org-roam-insert))
 (("C-c n I" . org-roam-insert-immediate))))
 
+(setq org-roam-dailies-capture-templates
+  `(("d" "default" entry (function org-roam-capture--get-point)
+     "* %?"
+     :file-name ,(concat org-roam-dailies-directory "%<%Y-%m-%d>")
+     :head "#+title: %<%Y-%m-%d>\n
+\n* Diary
+\n* [/] Todays Todos")))
+
 (setq org-roam-capture-templates
 '(("d" "default" plain (function org-roam-capture--get-point)
 "%?"
@@ -40,7 +65,9 @@
 #+CREATED: %u
 
 - tags ::
-
+\n* ${title}
+* Siehe Auch
+* Quellen
 "
 :unnarrowed t
 :immediate-finish t)))

@@ -1,7 +1,7 @@
-;;(use-package elcord
-  ;;:config
-  ;;(elcord-mode 1))
+(use-package elcord
+  :config
+  (elcord-mode 1))
 
-(setq initial-buffer-choice "~/MEGA/org-roam/index.org")
+(setq initial-buffer-choice #'org-roam-dailies-find-today)
 
 (provide 'init-misc)
