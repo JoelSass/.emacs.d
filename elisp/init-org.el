@@ -1,4 +1,4 @@
-(setq org-agenda-files (directory-files-recursively "~/MEGA/org-roam/" "\\.org$"))
+(setq org-agenda-files '("~/MEGA/tasks.org"))
 
 (setq org-todo-keywords
   '((sequence

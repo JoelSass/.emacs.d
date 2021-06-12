@@ -33,7 +33,7 @@
 :config
 (doom-themes-visual-bell-config)
 (doom-themes-org-config)
-(load-theme 'doom-solarized-light t))
+(load-theme 'doom-one t))
 
 
 (use-package doom-modeline
