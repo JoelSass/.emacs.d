@@ -14,9 +14,7 @@
   (setq dashboard-startup-banner "~/MEGA/e_z_money.png")
   (setq dashboard-center-content t)
   (setq dashboard-items '((recents  . 5)
-                        (bookmarks . 4)
-                        (agenda . 7)))
-  (setq dashboard-week-agenda t)
+                        (bookmarks . 4)))
   (setq dashboard-set-navigator t)
   (setq dashboard-navigator-buttons
       `(
@@ -29,5 +27,8 @@
          "Go to the daily agenda"
          (lambda (&rest _) (+org-agenda)))))))
 
+
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode t)
 
 (provide 'init-misc)

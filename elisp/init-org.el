@@ -12,6 +12,16 @@
      "CANCELED(c@)"
      )))
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t))) ; this line activates dot
+
+(defun my/fix-inline-images ()
+  (when org-inline-image-overlays
+    (org-redisplay-inline-images)))
+
+(add-hook 'org-babel-after-execute-hook 'my/fix-inline-images)
+
 (setq org-roam-dailies-directory "~/MEGA/org-roam/daily/")
 
 (setq org-image-actual-width '(400))
@@ -51,8 +61,8 @@
      "* %?"
      :file-name ,(concat org-roam-dailies-directory "%<%Y-%m-%d>")
      :head "#+title: %<%Y-%m-%d>\n
-\n* Diary
-\n* [/] Todays Todos")))
+[[file:../daily.org][Daily]]
+* Diary")))
 
 (setq org-roam-capture-templates
 '(("d" "default" plain (function org-roam-capture--get-point)
@@ -367,5 +377,21 @@
   :hook (org-mode . efs/org-mode-visual-fill))
 
 (use-package org-download)
+
+(require 'org-habit)
+(add-to-list 'org-modules 'org-habit)
+(setq org-habit-graph-column 60)
+(setq org-habit-show-all-today t)
+
+(setq org-agenda-start-with-log-mode t)
+(setq org-log-done 'time)
+(setq org-log-into-drawer t)
+
+(defadvice org-agenda (around split-vertically activate)
+  (let (
+    (split-width-threshold 20)    ; or whatever width makes sense for you
+    (split-height-threshold nil)) ; but never horizontally
+ad-do-it))
+
 
 (provide 'init-org)

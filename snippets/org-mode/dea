@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: dea
+# key: dea_
+# --
+
+#+BEGIN_SRC dot :file ${1:file}.png :cmdline -Kdot -Tpng
+digraph finite_state_machine {
+    rankdir=LR;
+    size="8,5"
+    node [shape = circle style="invis"] qs;
+    node [shape = doublecircle style ="solid"]; acc;
+    node [shape = circle]; S;    
+    qs -> S;
+  $0
+}
+#+END_SRC
