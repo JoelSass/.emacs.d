@@ -24,7 +24,7 @@
 
 (setq org-roam-dailies-directory "~/MEGA/org-roam/daily/")
 
-(setq org-image-actual-width '(400))
+(setq org-image-actual-width '(600))
 
 (use-package org-superstar
   :diminish
@@ -74,7 +74,7 @@
 #+ROAM_ALIAS:
 #+CREATED: %u
 
-- tags ::
+#+roam_tags: University ADS
 \n* ${title}
 * Siehe Auch
 * Quellen
