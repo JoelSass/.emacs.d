@@ -113,4 +113,12 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
  '(org-level-1 ((t (:height 2.0 :foreground "#a71d31"))))
  '(org-level-2 ((t (:height 1.5 :foreground "#8D6B94"))))
  '(org-level-3 ((t (:height 1.25))))
- '(org-level-4 ((t (:height 1.15)))))
+ '(org-level-4 ((t (:height 1.15))))
+ '(org-level-5 ((t (:height 1.05)))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("4f1d2476c290eaa5d9ab9d13b60f2c0f1c8fa7703596fa91b235db7f99a9441b" "6b1abd26f3e38be1823bd151a96117b288062c6cde5253823539c6926c3bb178" "e208e45345b91e391fa66ce028e2b30a6aa82a37da8aa988c3f3c011a15baa22" default)))

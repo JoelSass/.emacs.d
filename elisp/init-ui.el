@@ -28,12 +28,10 @@
 
 (use-package doom-themes
 :diminish
-:custom-face
-(cursor ((t (:background "dark goldenrod"))))
 :config
 (doom-themes-visual-bell-config)
 (doom-themes-org-config)
-(load-theme 'doom-one t))
+(load-theme 'doom-nord t))
 
 
 (use-package doom-modeline

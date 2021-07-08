@@ -62,7 +62,8 @@
      :file-name ,(concat org-roam-dailies-directory "%<%Y-%m-%d>")
      :head "#+title: %<%Y-%m-%d>\n
 [[file:../daily.org][Daily]]
-* Diary")))
+* Diary
+\n** Heute erreicht")))
 
 (setq org-roam-capture-templates
 '(("d" "default" plain (function org-roam-capture--get-point)
@@ -223,7 +224,7 @@
 (setq org-capture-templates
           (doct `(("Personal todo" :keys "t"
                    :icon ("checklist" :set "octicon" :color "green")
-		   :file "~/MEGA/org-roam/index.org"
+				   :file "~/MEGA/tasks.org"
                    :prepend t
                    :headline "Inbox"
                    :type entry
@@ -232,7 +233,7 @@
                    )
                   ("Personal note" :keys "n"
                    :icon ("sticky-note-o" :set "faicon" :color "green")
-		   :file "~/MEGA/org-roam/index.org"
+				   :file "~/MEGA/tasks.org"
                    :prepend t
                    :headline "Inbox"
                    :type entry
@@ -241,7 +242,7 @@
                    )
                   ("University" :keys "u"
                    :icon ("graduation-cap" :set "faicon" :color "purple")
-		   :file "~/MEGA/org-roam/index.org"
+				   :file "~/MEGA/tasks.org"
                    :headline "University"
                    :unit-prompt ,(format "%%^{Unit|%s}" (string-join (read-lines "~/MEGA/uni-units") "|"))
                    :prepend t
@@ -262,7 +263,7 @@
                                           "%i %a"))))
 		  ("Drill" :keys "d"
 		   :icon ("brain" :set "fileicon" :color "pink")
-		   :file "~/MEGA/org-roam/index.org"
+		   :file "~/MEGA/tasks.org"
 		   :prepend t
 		   :type entry
 		   :children (("Simple" :keys "s"
@@ -276,7 +277,7 @@
 			       :template ("* Item \t :drill: \n \t :PROPERTIES: \n \t :DRILL_CARD_TYPE: twosided \n \t :END: \n \n %^{Question} \n \n ** %^{First side} \n %^{First side answer} \n \n ** %^{second side} \n %^{second side answer}"))))
 		  ("Email" :keys "e"
                    :icon ("envelope" :set "faicon" :color "blue")
-		   :file "~/MEGA/org-roam/index.org"
+				   :file "~/MEGA/tasks.org"
                    :prepend t
                    :headline "Inbox"
                    :type entry
@@ -286,7 +287,7 @@
                               "%U %i %a"))
                   ("Interesting" :keys "i"
                    :icon ("eye" :set "faicon" :color "lcyan")
-		   :file "~/MEGA/org-roam/index.org"
+				   :file "~/MEGA/tasks.org"
                    :prepend t
                    :headline "Interesting"
                    :type entry
@@ -314,7 +315,7 @@
                                )))
                   ("Tasks" :keys "k"
                    :icon ("inbox" :set "octicon" :color "yellow")
-		   :file "~/MEGA/org-roam/index.org"
+				   :file "~/MEGA/tasks.org"
                    :prepend t
                    :headline "Tasks"
                    :type entry
@@ -364,17 +365,30 @@
             ("issue"      . ,(all-the-icons-faicon   "bug"            :face 'all-the-icons-red     :v-adjust 0.01))
             ("someday"    . ,(all-the-icons-faicon   "calendar-o"     :face 'all-the-icons-cyan    :v-adjust 0.01))
             ("idea"       . ,(all-the-icons-octicon  "light-bulb"     :face 'all-the-icons-yellow  :v-adjust 0.01))
+            ("private"    . ,(all-the-icons-octicon  "lock"           :face 'all-the-icons-yellow  :v-adjust 0.01))
+            ("birthday"   . ,(all-the-icons-faicon   "birthday-cake"  :face 'all-the-icons-yellow  :v-adjust 0.01))
             ("emacs"      . ,(all-the-icons-fileicon "emacs"          :face 'all-the-icons-lpurple :v-adjust 0.01))))
     (org-pretty-tags-global-mode))
 
-(defun efs/org-mode-visual-fill ()
-  (setq visual-fill-column-width 100
-        visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))
-
-(use-package visual-fill-column
-  :diminish 
-  :hook (org-mode . efs/org-mode-visual-fill))
+(setq org-tag-alist
+    '((:startgroup)
+       (:endgroup)
+       ("uni")
+       ("ucc")
+       ("assignment")
+       ("drill")
+       ("test")
+       ("lecture")
+       ("email")
+       ("web")
+       ("info")
+       ("issue")
+       ("someday")
+       ("idea")
+       ("emacs")
+       ("private")
+       ("birthday")
+       ("article")))
 
 (use-package org-download)
 

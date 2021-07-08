@@ -1,6 +1,6 @@
-(use-package elcord
-  :config
-  (elcord-mode 1))
+;;(use-package elcord
+;;  :config
+;;  (elcord-mode 1))
 
 (defun +org-agenda (&optional arg)
   (interactive "P")
