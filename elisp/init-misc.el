@@ -11,7 +11,7 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner "~/MEGA/e_z_money.png")
+  (setq dashboard-startup-banner "~/Dropbox/e_z_money.png")
   (setq dashboard-center-content t)
   (setq dashboard-items '((recents  . 5)
                         (bookmarks . 4)))

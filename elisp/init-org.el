@@ -1,4 +1,4 @@
-(setq org-agenda-files '("~/MEGA/tasks.org"))
+(setq org-agenda-files '("~/Dropbox/tasks.org"))
 
 (setq org-todo-keywords
   '((sequence
@@ -22,7 +22,7 @@
 
 (add-hook 'org-babel-after-execute-hook 'my/fix-inline-images)
 
-(setq org-roam-dailies-directory "~/MEGA/org-roam/daily/")
+(setq org-roam-dailies-directory "~/Dropbox/org-roam/daily/")
 
 (setq org-image-actual-width '(600))
 
@@ -42,12 +42,16 @@
 '(org-level-5 ((t (:height 1.05 ))))
 )
 
+(use-package emacsql-sqlite3)
+
 (use-package org-roam
-  :diminish
+:load-path (lambda () (expand-file-name "packages/org-roam" user-emacs-directory))
+:diminish
 :hook
 (after-init . org-roam-mode)
 :custom
-(org-roam-directory "~/MEGA/org-roam/")
+(org-roam-directory "~/Dropbox/org-roam/")
+
 :bind (:map org-roam-mode-map
 (("C-c n l" . org-roam)
  ("C-c n f" . org-roam-find-file)
@@ -224,7 +228,7 @@
 (setq org-capture-templates
           (doct `(("Personal todo" :keys "t"
                    :icon ("checklist" :set "octicon" :color "green")
-				   :file "~/MEGA/tasks.org"
+				   :file "~/Dropbox/tasks.org"
                    :prepend t
                    :headline "Inbox"
                    :type entry
@@ -233,7 +237,7 @@
                    )
                   ("Personal note" :keys "n"
                    :icon ("sticky-note-o" :set "faicon" :color "green")
-				   :file "~/MEGA/tasks.org"
+				   :file "~/Dropbox/tasks.org"
                    :prepend t
                    :headline "Inbox"
                    :type entry
@@ -242,9 +246,9 @@
                    )
                   ("University" :keys "u"
                    :icon ("graduation-cap" :set "faicon" :color "purple")
-				   :file "~/MEGA/tasks.org"
+				   :file "~/Dropbox/tasks.org"
                    :headline "University"
-                   :unit-prompt ,(format "%%^{Unit|%s}" (string-join (read-lines "~/MEGA/uni-units") "|"))
+                   :unit-prompt ,(format "%%^{Unit|%s}" (string-join (read-lines "~/Dropbox/uni-units") "|"))
                    :prepend t
                    :type entry
                    :children (("Test" :keys "t"
@@ -263,7 +267,7 @@
                                           "%i %a"))))
 		  ("Drill" :keys "d"
 		   :icon ("brain" :set "fileicon" :color "pink")
-		   :file "~/MEGA/tasks.org"
+		   :file "~/Dropbox/tasks.org"
 		   :prepend t
 		   :type entry
 		   :children (("Simple" :keys "s"
@@ -277,7 +281,7 @@
 			       :template ("* Item \t :drill: \n \t :PROPERTIES: \n \t :DRILL_CARD_TYPE: twosided \n \t :END: \n \n %^{Question} \n \n ** %^{First side} \n %^{First side answer} \n \n ** %^{second side} \n %^{second side answer}"))))
 		  ("Email" :keys "e"
                    :icon ("envelope" :set "faicon" :color "blue")
-				   :file "~/MEGA/tasks.org"
+				   :file "~/Dropbox/tasks.org"
                    :prepend t
                    :headline "Inbox"
                    :type entry
@@ -287,7 +291,7 @@
                               "%U %i %a"))
                   ("Interesting" :keys "i"
                    :icon ("eye" :set "faicon" :color "lcyan")
-				   :file "~/MEGA/tasks.org"
+				   :file "~/Dropbox/tasks.org"
                    :prepend t
                    :headline "Interesting"
                    :type entry
@@ -315,7 +319,7 @@
                                )))
                   ("Tasks" :keys "k"
                    :icon ("inbox" :set "octicon" :color "yellow")
-				   :file "~/MEGA/tasks.org"
+				   :file "~/Dropbox/tasks.org"
                    :prepend t
                    :headline "Tasks"
                    :type entry

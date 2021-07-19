@@ -35,7 +35,7 @@
   (anki-editor-reset-cloze-number)
   )
 ;; Org-capture templates
-(setq org-my-anki-file "~/MEGA/anki/")
+(setq org-my-anki-file "~/Dropbox/anki/")
 
 ;; Allow Emacs to access content from clipboard.
 (setq x-select-enable-clipboard t
