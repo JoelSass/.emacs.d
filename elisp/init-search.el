@@ -36,6 +36,7 @@
 
 (use-package company-prescient
   :after company
+  :load-path (lambda () (expand-file-name "packages/company-prescient" user-emacs-directory))
   :config
   (company-prescient-mode 1))
 

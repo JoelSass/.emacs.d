@@ -98,6 +98,7 @@
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.6))
 
 (use-package org-roam-server
+  :load-path (lambda () (expand-file-name "packages/org-roam-server" user-emacs-directory))
   :diminish
   :after org-roam
   :config
