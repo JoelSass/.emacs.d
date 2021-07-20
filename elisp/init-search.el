@@ -1,4 +1,5 @@
 (use-package ivy
+  :load-path (lambda () (expand-file-name "packages/swiper" user-emacs-directory))
   :diminish
   :bind (("C-s" . swiper)
          :map ivy-minibuffer-map
@@ -18,10 +19,12 @@
 
 (use-package ivy-rich
   :diminish
+  :load-path (lambda () (expand-file-name "packages/ivy-rich" user-emacs-directory))
   :init
   (ivy-rich-mode 1))
 
 (use-package counsel
+  :load-path (lambda () (expand-file-name "packages/swiper" user-emacs-directory))
   :diminish
   :bind (("C-M-j" . 'counsel-switch-buffer)
          :map minibuffer-local-map
@@ -30,13 +33,14 @@
   (counsel-mode 1))
 
 (use-package ivy-prescient
+  :load-path (lambda () (expand-file-name "packages/prescient.el" user-emacs-directory))
   :after counsel
   :config
   (ivy-prescient-mode 1))
 
 (use-package company-prescient
+  :load-path (lambda () (expand-file-name "packages/prescient.el" user-emacs-directory))
   :after company
-  :load-path (lambda () (expand-file-name "packages/company-prescient" user-emacs-directory))
   :config
   (company-prescient-mode 1))
 

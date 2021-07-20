@@ -27,7 +27,8 @@
 (setq org-image-actual-width '(600))
 
 (use-package org-superstar
-  :diminish
+:load-path (lambda () (expand-file-name "packages/org-superstar-mode" user-emacs-directory))
+:diminish
 :init
 (setq org-superstar-headline-bullets-list
 '("" "" "" "" "" ""))
@@ -41,8 +42,6 @@
 '(org-level-4 ((t (:height 1.15 ))))
 '(org-level-5 ((t (:height 1.05 ))))
 )
-
-(use-package emacsql-sqlite3)
 
 (use-package org-roam
 :load-path (lambda () (expand-file-name "packages/org-roam" user-emacs-directory))
@@ -119,6 +118,7 @@
           ("fontname"   . "Overpass")))
 
 (use-package org-super-agenda
+  :load-path (lambda () (expand-file-name "packages/org-super-agenda" user-emacs-directory))
   :diminish
   :commands (org-super-agenda-mode))
 
@@ -190,7 +190,9 @@
                           (:discard (:tag ("Chore" "Routine" "Daily")))))))))))
 
 
-(use-package doct :diminish)
+(use-package doct
+  :load-path (lambda () (expand-file-name "packages/doct" user-emacs-directory))
+  :diminish)
 
 (defun +doct-icon-declaration-to-icon (declaration)
     "Convert :icon declaration to icon"
@@ -395,7 +397,8 @@
        ("birthday")
        ("article")))
 
-(use-package org-download)
+(use-package org-download
+  :load-path (lambda () (expand-file-name "packages/org-download" user-emacs-directory)))
 
 (require 'org-habit)
 (add-to-list 'org-modules 'org-habit)
