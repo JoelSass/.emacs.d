@@ -27,7 +27,6 @@
 (setq org-image-actual-width '(600))
 
 (use-package org-superstar
-:load-path (lambda () (expand-file-name "packages/org-superstar-mode" user-emacs-directory))
 :diminish
 :init
 (setq org-superstar-headline-bullets-list
@@ -118,7 +117,6 @@
           ("fontname"   . "Overpass")))
 
 (use-package org-super-agenda
-  :load-path (lambda () (expand-file-name "packages/org-super-agenda" user-emacs-directory))
   :diminish
   :commands (org-super-agenda-mode))
 
@@ -191,7 +189,6 @@
 
 
 (use-package doct
-  :load-path (lambda () (expand-file-name "packages/doct" user-emacs-directory))
   :diminish)
 
 (defun +doct-icon-declaration-to-icon (declaration)
@@ -397,8 +394,8 @@
        ("birthday")
        ("article")))
 
-(use-package org-download
-  :load-path (lambda () (expand-file-name "packages/org-download" user-emacs-directory)))
+(use-package org-download)
+
 
 (require 'org-habit)
 (add-to-list 'org-modules 'org-habit)

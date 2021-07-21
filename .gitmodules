@@ -4,24 +4,3 @@
 [submodule "packages/org-roam-server"]
 	path = packages/org-roam-server
 	url = https://github.com/JoelSass/org-roam-server
-[submodule "packages/org-superstar-mode"]
-	path = packages/org-superstar-mode
-	url = https://github.com/JoelSass/org-superstar-mode
-[submodule "packages/org-super-agenda"]
-	path = packages/org-super-agenda
-	url = https://github.com/JoelSass/org-super-agenda
-[submodule "packages/doct"]
-	path = packages/doct
-	url = https://github.com/JoelSass/doct
-[submodule "packages/org-download"]
-	path = packages/org-download
-	url = https://github.com/JoelSass/org-download
-[submodule "packages/swiper"]
-	path = packages/swiper
-	url = https://github.com/JoelSass/swiper
-[submodule "packages/ivy-rich"]
-	path = packages/ivy-rich
-	url = https://github.com/JoelSass/ivy-rich
-[submodule "packages/prescient.el"]
-	path = packages/prescient.el
-	url = https://github.com/JoelSass/prescient.el
