@@ -21,7 +21,7 @@
         ((,(all-the-icons-material "today" :height 0.9 :v-adjust 0.0)
          "Daily"
          "Go to the daily org-roam file"
-         (lambda (&rest _) (org-roam-dailies-find-today)))
+         (lambda (&rest _) (org-roam-dailies-goto-today)))
 	 (,(all-the-icons-octicon "checklist" :height 1.0 :v-adjust 0.0)
          "Agenda"
          "Go to the daily agenda"

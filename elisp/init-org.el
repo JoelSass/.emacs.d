@@ -54,42 +54,35 @@
              ;; Dailies
              ("C-c n j" . org-roam-dailies-capture-today))
       :config
-      (org-roam-setup)
       ;; If using org-roam-protocol
       (require 'org-roam-protocol))
 
 (setq org-roam-v2-ack t)
+(org-roam-setup)
 
-(add-hook 'after-save-hook 'push-anki-h)
+(setq org-roam-dailies-capture-templates
+  `(("d" "default" entry "* %?" :if-new
+     (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n#+filetags: Daily\n* Tagebuch\n** Heute Erreicht
+     ")
+	 :unnarrowed t
+	 :immediate-finish t)))
 
-(defun push-anki-h()
-  (when (org-roam--org-roam-file-p)
-    (anki-editor-push-notes)))
+(setq org-roam-capture-templates
+  `(("d" "default" plain "%?" :if-new
+     (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+"#+title: ${title}\n
+#+startup: latexpreview showall
+#+ROAM_ALIAS:
+#+CREATED: %u
+#+filetags:
+\n* ${title}
+* Siehe Auch
+* Quellen")
+	 :unnarrowed t)))
 
 (setq org-startup-with-inline-images t)
 (setq org-hide-emphasis-markers t)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.6))
-
-(use-package org-roam-server
-  :load-path (lambda () (expand-file-name "packages/org-roam-server" user-emacs-directory))
-  :diminish
-  :after org-roam
-  :config
-  (setq org-roam-server-host "127.0.0.1"
-        org-roam-server-port 8078
-        org-roam-server-export-inline-images t
-        org-roam-server-authenticate nil
-        org-roam-server-network-label-truncate t
-        org-roam-server-network-label-truncate-length 60
-        org-roam-server-network-label-wrap-length 20))
-
-(setq org-roam-graph-node-extra-config
-        '(("shape"      . "underline")
-          ("style"      . "rounded,filled")
-          ("fillcolor"  . "#EEEEEE")
-          ("color"      . "#C9C9C9")
-          ("fontcolor"  . "#111111")
-          ("fontname"   . "Overpass")))
 
 (use-package org-super-agenda
   :diminish
