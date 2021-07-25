@@ -43,47 +43,22 @@
 )
 
 (use-package org-roam
-:load-path (lambda () (expand-file-name "packages/org-roam" user-emacs-directory))
-:diminish
-:hook
-(after-init . org-roam-mode)
-:custom
-(org-roam-directory "~/Dropbox/org-roam/")
+      :ensure t
+      :custom
+      (org-roam-directory (file-truename "/home/memento/Dropbox/org-roam"))
+      :bind (("C-c n l" . org-roam-buffer-toggle)
+             ("C-c n f" . org-roam-node-find)
+             ("C-c n g" . org-roam-graph)
+             ("C-c n i" . org-roam-node-insert)
+             ("C-c n c" . org-roam-capture)
+             ;; Dailies
+             ("C-c n j" . org-roam-dailies-capture-today))
+      :config
+      (org-roam-setup)
+      ;; If using org-roam-protocol
+      (require 'org-roam-protocol))
 
-:bind (:map org-roam-mode-map
-(("C-c n l" . org-roam)
- ("C-c n f" . org-roam-find-file)
- ("C-c n g" . org-roam-graph))
-:map org-mode-map
-(("C-c n i" . org-roam-insert))
-(("C-c n I" . org-roam-insert-immediate))))
-
-(setq org-roam-dailies-capture-templates
-  `(("d" "default" entry (function org-roam-capture--get-point)
-     "* %?"
-     :file-name ,(concat org-roam-dailies-directory "%<%Y-%m-%d>")
-     :head "#+title: %<%Y-%m-%d>\n
-[[file:../daily.org][Daily]]
-* Diary
-\n** Heute erreicht")))
-
-(setq org-roam-capture-templates
-'(("d" "default" plain (function org-roam-capture--get-point)
-"%?"
-:file-name "${slug}"
-:head "#+TITLE: ${title}
-#+startup: latexpreview showall
-
-#+ROAM_ALIAS:
-#+CREATED: %u
-
-#+roam_tags: University ADS
-\n* ${title}
-* Siehe Auch
-* Quellen
-"
-:unnarrowed t
-:immediate-finish t)))
+(setq org-roam-v2-ack t)
 
 (add-hook 'after-save-hook 'push-anki-h)
 

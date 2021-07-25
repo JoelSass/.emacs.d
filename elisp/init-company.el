@@ -1,5 +1,4 @@
 (use-package company
-  :load-path (lambda () (expand-file-name "packages/company" user-emacs-directory))
   :diminish
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
   :commands company-cancel
@@ -30,7 +29,6 @@
                             company-echo-metadata-frontend)))
 
 (use-package company-box
-  :load-path (lambda () (expand-file-name "packages/company-box" user-emacs-directory))
   :diminish
   :hook (company-mode . company-box-mode)
   :config

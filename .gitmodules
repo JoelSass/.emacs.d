@@ -1,6 +1,0 @@
-[submodule "packages/org-roam"]
-	path = packages/org-roam
-	url = https://github.com/JoelSass/org-roam
-[submodule "packages/org-roam-server"]
-	path = packages/org-roam-server
-	url = https://github.com/JoelSass/org-roam-server
