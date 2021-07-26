@@ -72,17 +72,25 @@
      (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
 "#+title: ${title}\n
 #+startup: latexpreview showall
-#+ROAM_ALIAS:
 #+CREATED: %u
 #+filetags:
 \n* ${title}
 * Siehe Auch
-* Quellen")
+* Quellen
+* Footnotes
+
+* Flashcards")
 	 :unnarrowed t)))
 
 (setq org-startup-with-inline-images t)
 (setq org-hide-emphasis-markers t)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.6))
+
+(add-hook 'after-save-hook 'push-anki-h)
+
+(defun push-anki-h()
+  (when (string-equal major-mode "org-mode")
+    (anki-editor-push-notes)))
 
 (use-package org-super-agenda
   :diminish

@@ -3,11 +3,11 @@
 # key: <ank
 # --
 
-* $1
+** $1
 :PROPERTIES:
 :ANKI_DECK: Default
 :ANKI_NOTE_TYPE: Basic
 :END:
-** Front
+*** Front
     $1
-** Back
+*** Back
