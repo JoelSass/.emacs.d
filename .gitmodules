@@ -1,0 +1,3 @@
+[submodule "packages/emacs-application-framework"]
+	path = packages/emacs-application-framework
+	url = https://github.com/manateelazycat/emacs-application-framework/

@@ -63,9 +63,7 @@
 (setq org-roam-dailies-capture-templates
   `(("d" "default" entry "* %?" :if-new
      (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n#+filetags: Daily\n* Tagebuch\n** Heute Erreicht
-     ")
-	 :unnarrowed t
-	 :immediate-finish t)))
+     "))))
 
 (setq org-roam-capture-templates
   `(("d" "default" plain "%?" :if-new
@@ -86,6 +84,7 @@
 (setq org-hide-emphasis-markers t)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.6))
 
+(setq org-startup-indented t)
 (add-hook 'after-save-hook 'push-anki-h)
 
 (defun push-anki-h()
