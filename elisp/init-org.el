@@ -240,20 +240,6 @@
                                :icon ("list" :set "faicon" :color "yellow")
                                :template ("* TODO [#D] %{unit-prompt} %? :uni:"
                                           "%i %a"))))
-		  ("Drill" :keys "d"
-		   :icon ("brain" :set "fileicon" :color "pink")
-		   :file "~/Dropbox/tasks.org"
-		   :prepend t
-		   :type entry
-		   :children (("Simple" :keys "s"
-			       :icon ("create" :set "material" :color "green")
-			       :template ("* Item \t :drill: \n %^{Question} ? \n** The Answer \n %^{Answer} ."))
-			      ("Cloze" :keys "c"
-			       :icon ("more_horiz" :set "material" :color "green")
-			       :template ("* Item \t :drill: \n %^{sentence} [ %^{placeholder} ]"))
-			      ("Double-sided" :keys "d"
-			       :icons ("call_split" :set "material" :color "green")
-			       :template ("* Item \t :drill: \n \t :PROPERTIES: \n \t :DRILL_CARD_TYPE: twosided \n \t :END: \n \n %^{Question} \n \n ** %^{First side} \n %^{First side answer} \n \n ** %^{second side} \n %^{second side answer}"))))
 		  ("Email" :keys "e"
                    :icon ("envelope" :set "faicon" :color "blue")
 				   :file "~/Dropbox/tasks.org"
@@ -277,7 +263,7 @@
                                :desc "%(org-cliplink-capture) "
                                :i-type "read:web"
                                )
-			      ("Article" :keys "a"
+							  ("Article" :keys "a"
                                :icon ("file-text" :set "octicon" :color "yellow")
                                :desc ""
                                :i-type "read:research"
@@ -296,7 +282,7 @@
                    :icon ("inbox" :set "octicon" :color "yellow")
 				   :file "~/Dropbox/tasks.org"
                    :prepend t
-                   :headline "Tasks"
+                   :headline "Inbox"
                    :type entry
                    :template ("* TODO %? %^G%{extra}"
                               "%i %a")
@@ -315,14 +301,14 @@
                               ))
 		  )))
 
-(define-key global-map (kbd "C-c X")
+(define-key global-map (kbd "C-c x")
   (lambda () (interactive) (org-capture)))
 
 (defun +org-agenda (&optional arg)
   (interactive "P")
   (org-agenda arg "o"))
 
-(define-key global-map (kbd "C-c x")
+(define-key global-map (kbd "C-c X")
   (lambda () (interactive) (+org-agenda)))
 
 

@@ -106,3 +106,8 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-elfeed)
 
 (require 'init-pdf)
+
+(progn
+  (add-to-list 'load-path "~/.emacs.d/packages/org-pretty-table")
+  (require 'org-pretty-table)
+  (add-hook 'org-mode-hook (lambda () (org-pretty-table-mode))))
