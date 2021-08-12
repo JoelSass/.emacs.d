@@ -1,5 +1,13 @@
 (setq org-agenda-files '("~/Dropbox/tasks.org"))
 
+(use-package org-drill
+  :config (progn
+			(add-to-list 'org-modules 'org-drill)
+			(setq org-drill-add-random-noise-to-intervals-p t)
+			(setq org-drill-hint-separator "||")
+			(setq org-drill-learn-fraction 0.25)
+			))
+
 (setq org-todo-keywords
   '((sequence
      "TODO(t!)"
@@ -75,9 +83,7 @@
 \n* ${title}
 * Siehe Auch
 * Quellen
-* Footnotes
-
-* Flashcards")
+* Footnotes")
 	 :unnarrowed t)))
 
 (setq org-startup-with-inline-images t)
@@ -240,6 +246,21 @@
                                :icon ("list" :set "faicon" :color "yellow")
                                :template ("* TODO [#D] %{unit-prompt} %? :uni:"
                                           "%i %a"))))
+	  ("Drill" :keys "d"
+		   :icon ("brain" :set "fileicon" :color "pink")
+		   :file "~/Dropbox/tasks.org"
+           :headline "Drill"
+		   :prepend t
+		   :type entry
+		   :children (("Simple" :keys "s"
+			       :icon ("create" :set "material" :color "green")
+			       :template ("* Item\t:drill:\n%?\n** The Answer\n%?"))
+			      ("Cloze" :keys "c"
+			       :icon ("more_horiz" :set "material" :color "green")
+			       :template ("* Item \t :drill:\n %? []"))
+			      ("Double-sided" :keys "d"
+			       :icons ("call_split" :set "material" :color "green")
+			       :template ("* Item \t :drill:\n\t:PROPERTIES:\n\t:DRILL_CARD_TYPE: twosided\n\t:END:\n\n%?\n\n** %?\n%?\n\n** %?\n%?"))))
 		  ("Email" :keys "e"
                    :icon ("envelope" :set "faicon" :color "blue")
 				   :file "~/Dropbox/tasks.org"
@@ -372,6 +393,8 @@
     (split-width-threshold 20)    ; or whatever width makes sense for you
     (split-height-threshold nil)) ; but never horizontally
 ad-do-it))
+
+(use-package org-pomodoro)
 
 
 (provide 'init-org)

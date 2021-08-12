@@ -22,10 +22,19 @@
          "Daily"
          "Go to the daily org-roam file"
          (lambda (&rest _) (org-roam-dailies-goto-today)))
+		 (,(all-the-icons-fileicon "brain" :height 1.0 :v-adjust 0.0)
+		  "Flashcards"
+		  "Start org drill"
+		  (lambda (&rest _) (org-drill org-agenda-files)))	 
 	 (,(all-the-icons-octicon "checklist" :height 1.0 :v-adjust 0.0)
          "Agenda"
          "Go to the daily agenda"
-         (lambda (&rest _) (+org-agenda)))))))
+         (lambda (&rest _) (+org-agenda)))
+	 (,(all-the-icons-octicon "mail" :height 1.0 :v-adjust 0.0)
+	  "Mail"
+	  "Open mu to read mail"
+	  (lambda (&rest _) (mu4e)))
+	 ))))
 
 
 (setq-default tab-width 4)
