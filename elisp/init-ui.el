@@ -27,24 +27,29 @@
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-font-size :weight 'regular)
 
 (use-package doom-themes
-:diminish
-:config
-(doom-themes-visual-bell-config)
-(doom-themes-org-config)
-(load-theme 'doom-nord t))
-
+  :custom-face
+  (cursor ((t (:background "BlanchedAlmond"))))
+  :config
+  ;; flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config)
+  (load-theme 'doom-one t)
+  (defun switch-theme ()
+    "An interactive funtion to switch themes."
+    (interactive)
+    (disable-theme (intern (car (mapcar #'symbol-name custom-enabled-themes))))
+    (call-interactively #'load-theme)))
 
 (use-package doom-modeline
-  :diminish
-:custom
-(inhibit-compacting-font-caches t)
-(doom-modeline-minor-modes t)
-(doom-modeline-icon t)
-(doom-modeline-major-mode-color-icon t)
-(doom-modeline-height 15)
-:config
-(doom-modeline-mode))
-
+  :custom
+  (inhibit-compacting-font-caches t)
+  (doom-modeline-minor-modes t)
+  (doom-modeline-icon t)
+  (doom-modeline-major-mode-color-icon t)
+  (doom-modeline-height 15)
+  :config
+  (doom-modeline-mode))
 
 ;; pretty eshell
 (use-package magit :ensure t :diminish)

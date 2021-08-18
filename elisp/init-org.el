@@ -59,14 +59,14 @@
              ("C-c n g" . org-roam-graph)
              ("C-c n i" . org-roam-node-insert)
              ("C-c n c" . org-roam-capture)
+			 ("C-c n a" . org-roam-alias-add)
              ;; Dailies
              ("C-c n j" . org-roam-dailies-capture-today))
       :config
-      ;; If using org-roam-protocol
+      (org-roam-db-autosync-mode)
       (require 'org-roam-protocol))
 
 (setq org-roam-v2-ack t)
-(org-roam-setup)
 
 (setq org-roam-dailies-capture-templates
   `(("d" "default" entry "* %?" :if-new
@@ -74,17 +74,47 @@
      "))))
 
 (setq org-roam-capture-templates
-  `(("d" "default" plain "%?" :if-new
-     (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-"#+title: ${title}\n
-#+startup: latexpreview showall
+  `(("d" "default" plain "#+startup: latexpreview showall
 #+CREATED: %u
-#+filetags:
+#+filetags: TODO
 \n* ${title}
+%?
 * Siehe Auch
 * Quellen
-* Footnotes")
-	 :unnarrowed t)))
+* Footnote" :if-new
+     (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+"#+title: ${title}\n")
+	 :unnarrowed t)
+	("p" "People" plain "#+filetags: :TODO:People:
+* ${title}
+%?
+** Leben
+** Werk" :if-new
+	 (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+"#+title: ${title}\n")
+	 :unnarrowed t)
+		("f" "Bekannte" plain "#+filetags: :TODO:People:
+* ${title}
+%?
+** Geburtstag
+** Mag gern" :if-new
+	 (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+"#+title: ${title}\n")
+	 :unnarrowed t
+	)))
+
+(use-package websocket)
+(use-package simple-httpd)
+
+(use-package org-roam-ui
+  :after org-roam
+  :load-path "~/.emacs.d/packages/org-roam-ui"
+  :config
+  (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
+
 
 (setq org-startup-with-inline-images t)
 (setq org-hide-emphasis-markers t)
