@@ -103,18 +103,17 @@
 	 :unnarrowed t
 	)))
 
-(use-package websocket)
-(use-package simple-httpd)
 
 (use-package org-roam-ui
-  :after org-roam
-  :load-path "~/.emacs.d/packages/org-roam-ui"
-  :config
-  (setq org-roam-ui-sync-theme t
+  :straight
+    (:host github :repo "org-roam/org-roam-ui" :branch "main" :files ("*.el" "out"))
+    :after org-roam
+    :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
           org-roam-ui-follow t
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
-
 
 (setq org-startup-with-inline-images t)
 (setq org-hide-emphasis-markers t)

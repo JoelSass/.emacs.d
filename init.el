@@ -65,7 +65,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 
 (update-to-load-path (expand-file-name "elisp" user-emacs-directory))
 
-(setq use-package-always-ensure t)
+(setq straight-use-package-by-default t)
 
 (setq make-backup-files nil)
 
