@@ -17,6 +17,7 @@
   (ivy-mode 1))
 
 (use-package ivy-rich
+  :after counsel
   :diminish
   :init
   (ivy-rich-mode 1))

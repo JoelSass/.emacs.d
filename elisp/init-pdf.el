@@ -1,5 +1,4 @@
-(use-package pdf-tools-install
-  :ensure pdf-tools
+(use-package pdf-tools
   :mode "\\.pdf\\'"
   :commands (pdf-loader-install)
   :custom
@@ -10,4 +9,5 @@
   :config
   (pdf-loader-install))
 
+(add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
 (provide 'init-pdf)

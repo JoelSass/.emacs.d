@@ -67,6 +67,7 @@
       (require 'org-roam-protocol))
 
 (setq org-roam-v2-ack t)
+(setq org-id-locations-file "~/.emacs.d/.org-id-locations")
 
 (setq org-roam-dailies-capture-templates
   `(("d" "default" entry "* %?" :if-new
@@ -283,13 +284,13 @@
 		   :type entry
 		   :children (("Simple" :keys "s"
 			       :icon ("create" :set "material" :color "green")
-			       :template ("* Item\t:drill:\n%?\n** The Answer\n%?"))
+			       :template ("* Item\t:drill:\n%?\n** The Answer\n"))
 			      ("Cloze" :keys "c"
 			       :icon ("more_horiz" :set "material" :color "green")
 			       :template ("* Item \t :drill:\n %? []"))
 			      ("Double-sided" :keys "d"
 			       :icons ("call_split" :set "material" :color "green")
-			       :template ("* Item \t :drill:\n\t:PROPERTIES:\n\t:DRILL_CARD_TYPE: twosided\n\t:END:\n\n%?\n\n** %?\n%?\n\n** %?\n%?"))))
+			       :template ("* Item \t :drill:\n\t:PROPERTIES:\n\t:DRILL_CARD_TYPE: twosided\n\t:END:\n\n%?\n\n** \n\n\n** \n"))))
 		  ("Email" :keys "e"
                    :icon ("envelope" :set "faicon" :color "blue")
 				   :file "~/Dropbox/tasks.org"
@@ -425,5 +426,11 @@ ad-do-it))
 
 (use-package org-pomodoro)
 
+(use-package org-alert
+  :custom (alert-default-style 'notifications)
+  :config
+  (setq org-alert-interval 3000
+		org-alert-notification-title "Org Tasks Reminder")
+  (org-alert-enable))
 
 (provide 'init-org)
