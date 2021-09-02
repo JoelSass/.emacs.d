@@ -113,3 +113,5 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
   (add-hook 'org-mode-hook (lambda () (org-pretty-table-mode))))
 
 (require 'init-ledger)
+
+(require 'init-spell)
