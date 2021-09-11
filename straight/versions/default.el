@@ -63,7 +63,7 @@
  ("org-pdftools" . "a5b61bca3f8c91b0859bb0df1a929f9a31a57b99")
  ("org-pomodoro" . "aa07c11318f91219336197e62c47bc7a3d090479")
  ("org-pretty-tags" . "5c7521651b35ae9a7d3add4a66ae8cc176ae1c76")
- ("org-roam" . "028c95a011395d01ff9b5217dc365f23187bc26c")
+ ("org-roam" . "340215a16aa379bdd6121303c729a405cb481bef")
  ("org-roam-ui" . "9ad111d2102c24593f6ac012206bb4b2c9c6c4e1")
  ("org-super-agenda" . "a5557ea4f51571ee9def3cd9a1ab1c38f1a27af7")
  ("org-superstar-mode" . "9d64c42e5029910153ec74cb9b5747b074281140")
