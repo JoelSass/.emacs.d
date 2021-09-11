@@ -1,4 +1,4 @@
-(setq org-agenda-files '("~/Dropbox/tasks.org"))
+(setq org-agenda-files '("~/Dropbox/org/tasks.org"))
 
 (use-package org-drill
   :config (progn
@@ -30,7 +30,7 @@
 
 (add-hook 'org-babel-after-execute-hook 'my/fix-inline-images)
 
-(setq org-roam-dailies-directory "~/Dropbox/roam/daily/")
+(setq org-roam-dailies-directory "~/Dropbox/org/roam/daily/")
 
 (setq org-image-actual-width '(600))
 
@@ -53,7 +53,7 @@
 (use-package org-roam
       :ensure t
       :custom
-      (org-roam-directory (file-truename "/home/memento/Dropbox/roam"))
+      (org-roam-directory (file-truename "/home/memento/Dropbox/org/roam"))
       :bind (("C-c n l" . org-roam-buffer-toggle)
              ("C-c n f" . org-roam-node-find)
              ("C-c n g" . org-roam-graph)
@@ -239,7 +239,7 @@
 (setq org-capture-templates
           (doct `(("Personal todo" :keys "t"
                    :icon ("checklist" :set "octicon" :color "green")
-				   :file "~/Dropbox/tasks.org"
+				   :file "~/Dropbox/org/tasks.org"
                    :prepend t
                    :headline "Inbox"
                    :type entry
@@ -248,7 +248,7 @@
                    )
                   ("Personal note" :keys "n"
                    :icon ("sticky-note-o" :set "faicon" :color "green")
-				   :file "~/Dropbox/tasks.org"
+				   :file "~/Dropbox/org/tasks.org"
                    :prepend t
                    :headline "Inbox"
                    :type entry
@@ -257,7 +257,7 @@
                    )
                   ("University" :keys "u"
                    :icon ("graduation-cap" :set "faicon" :color "purple")
-				   :file "~/Dropbox/tasks.org"
+				   :file "~/Dropbox/org/tasks.org"
                    :headline "University"
                    :unit-prompt ,(format "%%^{Unit|%s}" (string-join (read-lines "~/Dropbox/uni-units") "|"))
                    :prepend t
@@ -278,7 +278,7 @@
                                           "%i %a"))))
 	  ("Drill" :keys "d"
 		   :icon ("brain" :set "fileicon" :color "pink")
-		   :file "~/Dropbox/tasks.org"
+		   :file "~/Dropbox/org/tasks.org"
            :headline "Drill"
 		   :prepend t
 		   :type entry
@@ -293,7 +293,7 @@
 			       :template ("* Item \t :drill:\n\t:PROPERTIES:\n\t:DRILL_CARD_TYPE: twosided\n\t:END:\n\n%?\n\n** \n\n\n** \n"))))
 		  ("Email" :keys "e"
                    :icon ("envelope" :set "faicon" :color "blue")
-				   :file "~/Dropbox/tasks.org"
+				   :file "~/Dropbox/org/tasks.org"
                    :prepend t
                    :headline "Inbox"
                    :type entry
@@ -303,7 +303,7 @@
                               "%U %i %a"))
                   ("Interesting" :keys "i"
                    :icon ("eye" :set "faicon" :color "lcyan")
-				   :file "~/Dropbox/tasks.org"
+				   :file "~/Dropbox/org/tasks.org"
                    :prepend t
                    :headline "Interesting"
                    :type entry
@@ -331,7 +331,7 @@
                                )))
                   ("Tasks" :keys "k"
                    :icon ("inbox" :set "octicon" :color "yellow")
-				   :file "~/Dropbox/tasks.org"
+				   :file "~/Dropbox/org/tasks.org"
                    :prepend t
                    :headline "Inbox"
                    :type entry
