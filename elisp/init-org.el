@@ -1,4 +1,4 @@
-(setq org-agenda-files '("~/Dropbox/org/tasks.org"))
+(setq org-agenda-files '("~/Dropbox/org"))
 
 (use-package org-drill
   :config (progn
@@ -8,17 +8,68 @@
 			(setq org-drill-learn-fraction 0.25)
 			))
 
-(setq org-todo-keywords
-  '((sequence
-     "TODO(t!)"
-     "GO(g@)"
-     "WAIT(w@)"
-     "BLOCKED(b@)"
-     "REVIEW(r!)"
-     "|"
-     "DONE(d@)"
-     "CANCELED(c@)"
-     )))
+(setq org-refile-targets
+        '((nil :maxlevel . 3)
+          (org-agenda-files :maxlevel . 3))
+        org-refile-use-outline-path 'file
+        org-outline-path-complete-in-steps nil)
+
+(use-package evil-org
+  :ensure t
+  :after org
+  :hook (org-mode . (lambda () evil-org-mode))
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
+
+(setq-default
+   ;; Different colors for different priority levels
+   org-agenda-deadline-faces
+   '((1.001 . error)
+     (1.0 . org-warning)
+     (0.5 . org-upcoming-deadline)
+     (0.0 . org-upcoming-distant-deadline))
+   ;; Don't monopolize the whole frame just for the agenda
+   org-agenda-window-setup 'current-window
+   org-agenda-skip-unavailable-files t
+   ;; Shift the agenda to show the previous 3 days and the next 7 days for
+   ;; better context on your week. The past is less important than the future.
+   org-agenda-span 10
+   org-agenda-start-on-weekday nil
+   org-agenda-start-day "-3d")
+
+ (setq org-todo-keywords
+        '((sequence
+           "TODO(t)"  ; A task that needs doing & is ready to do
+           "PROJ(p)"  ; A project, which usually contains other tasks
+           "LOOP(r)"  ; A recurring task
+           "STRT(s)"  ; A task that is in progress
+           "WAIT(w)"  ; Something external is holding up this task
+           "HOLD(h)"  ; This task is paused/on hold because of me
+           "IDEA(i)"  ; An unconfirmed and unapproved task or notion
+           "|"
+           "DONE(d)"  ; Task successfully completed
+           "KILL(k)") ; Task was cancelled, aborted or is no longer applicable
+          (sequence
+           "[ ](T)"   ; A task that needs doing
+           "[-](S)"   ; Task is in progress
+           "[?](W)"   ; Task is being held up or paused
+           "|"
+           "[X](D)")  ; Task was completed
+          (sequence
+           "|"
+           "OKAY(o)"
+           "YES(y)"
+           "NO(n)"))
+        org-todo-keyword-faces
+        '(("[-]"  . +org-todo-active)
+          ("STRT" . +org-todo-active)
+          ("[?]"  . +org-todo-onhold)
+          ("WAIT" . +org-todo-onhold)
+          ("HOLD" . +org-todo-onhold)
+          ("PROJ" . +org-todo-project)
+          ("NO"   . +org-todo-cancel)
+          ("KILL" . +org-todo-cancel)))
 
 (org-babel-do-load-languages
  'org-babel-load-languages

@@ -1,5 +1,5 @@
-(defvar efs/default-font-size 120)
-(defvar efs/default-variable-font-size 120)
+(defvar efs/default-font-size 100)
+(defvar efs/default-variable-font-size 100)
 (show-paren-mode t)
 (setq show-paren-style 'expression)
 (fset 'yes-or-no-p 'y-or-n-p)
