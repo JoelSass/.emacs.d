@@ -110,3 +110,7 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-ledger)
 
 (require 'init-spell)
+
+(require 'init-web)
+
+(require 'init-term)
