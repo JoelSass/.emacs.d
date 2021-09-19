@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: Cloze Flashcard
+# key: <clo
+# --
+
+** $1
+:PROPERTIES:
+:ANKI_DECK: Default
+:ANKI_NOTE_TYPE: Cloze-5cc17
+:END:
+*** Text
+    $1

@@ -140,7 +140,8 @@
 %?
 * Siehe Auch
 * Quellen
-* Footnote" :if-new
+* Footnotes
+* Flashcards" :if-new
      (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
 "#+title: ${title}\n")
 	 :unnarrowed t)
