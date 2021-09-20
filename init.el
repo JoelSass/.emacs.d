@@ -114,3 +114,15 @@ If you experience freezing, decrease this.  If you experience stuttering, increa
 (require 'init-web)
 
 (require 'init-term)
+
+(require 'init-treemacs)
+
+(require 'init-sudo)
+
+(require 'init-tex)
+
+(require 'init-format)
+
+(require 'init-rust)
+
+(require 'init-pass)
